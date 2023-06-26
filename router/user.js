@@ -1,5 +1,5 @@
 const UserController = require("../controller/user");
-const authMiddleware = require("../middleware/auth");
+//const authMiddleware = require("../middleware/auth");
 
 
 module.exports = (router) => {
@@ -7,6 +7,8 @@ module.exports = (router) => {
 
   router.post("/users/signup", UserController.signUp);
 
-  router.patch("/users/profile", authMiddleware.auth, UserController.updateProfile);
+  router.get("/users/signature-data", UserController.getSignatureData);
+
+  router.patch("/users/profile", UserController.updateProfile);
 }
 
